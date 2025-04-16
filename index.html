@@ -148,7 +148,13 @@ console.log("This file last modified " + docMod); // generates message in javaSc
             };
          }
 
-	      
+	// Function: clearCanvas()
+         // Purpose: Clears the canvas, erasing all drawings/content
+         function clearCanvas() {
+            // Clear the canvas by erasing the drawing area from (0,0) to the full width and height of the canvas.
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+         }
+      </script>
 
 </body>
 </html>
