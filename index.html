@@ -125,14 +125,16 @@
         }
         
         // Function: loadImage()
-        // Purpose: Loads an image onto the canvas.
-        function loadImage() {
-            var img = new Image();
-            img.src = "example.jpg"; // Change this to the path of your image file
-            img.onload = function() {
-                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-            };
-        }
+        // Purpose: Loads a specific image from the provided URL onto the canvas.
+    function loadImage() {
+    var img = new Image();
+        // Set the image source to the provided URL.
+    img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE5wkc0OMXsy3CMnmKoKiAlPGZYKVI-IYUqQ&s";
+    img.onload = function() {
+        // Draw the image starting at the top left (0,0) scaled to the canvas size.
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    };
+}
         
         // Function: clearCanvas()
         // Purpose: Clears all content from the canvas.
