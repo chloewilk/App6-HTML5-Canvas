@@ -1,160 +1,66 @@
-<!DOCTYPE html> 
-<html> 
-<!-- The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only.  Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.
- 
-THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
- 
- 
-Authors in chronological order of contribution:
-Tim Riedel
-Chloe Wilk
- 
-Further Information:
-http://cns.utexas.edu/fri
- 
-Research Educator:
-Timothy Riedel
-triedel@utexas.edu
- 
-Brief Description of Goal of Code:
-The goal of this app is to create an HTML5 canvas on which a user can click buttons to draw a rectangle, generate a name, display an image, and clear the canvas. The app will have 4 buttons to perform these functions. 
- 
-Known Issues:
-Issues with displaying images. 
-	
-https://www.w3schools.com/w3css/default.asp
-https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
+<!DOCTYPE html>
+<html>
+<!-- 
+    The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream 
+    at The University of Texas at Austin. This code is shared for demonstration purposes and should not be considered a product -- 
+    it is for entertainment purposes only. Any user of this code does so at their own risk. Members of the DIY Stream, FRI, 
+    and The University of Texas system are not liable for anything related to this code.
+    
+    THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
+    
+    Authors in chronological order of contribution:
+    Tim Riedel
+    Chloe Wilk
+    
+    Brief Description:
+    The goal of this app is to create an HTML5 canvas on which a user can click buttons to draw a rectangle, generate a name, 
+    display an image, and clear the canvas. The app has 4 buttons for these functions.
 -->
-	
-   <head> 
-      <title>App6---HTML5-Canvas</title>  
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="apple-mobile-web-app-capable" content="yes">
-      <link rel="stylesheet" href="w3.css">
-      <link rel="stylesheet" href="w3-colors-flat.css">
-   </head> 
-
-
-<script>
-var docMod = document.lastModified; // loads last modified time stamp into docMod variable
-alert("This file last modified " + docMod); // generates alert box with time stamp. If annoying, comment out this entire line.
-console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
-</script>
-
-
-
-<style>	
-.body {
-     margin: 0em;
-}
-.page {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: -100vw;
-    overflow-y: auto;
-    z-index: 0;
-    background-color: hsl(0,0%,100%);
-}
-  .page:target {
-    left: 0vw;
-    z-index: 1;
-}
-</style>
-
-<body>
-<div id="header" class="w3-container w3-flat-carrot">
-	<h1>App6---HTML5-Canvas</h1>
-
-<div id="content" class="w3-container">
-         <p>This is an HTML5 canvas drawing application. Use the buttons below to draw a rectangle, write your name, load an image, or clear the canvas.</p>
-		
-	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
- 	
-	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
-
-<!-- Canvas element where drawing will show up, the id attribute is used to reference the canvas in JavaScript.
-              The width and height are set such that the canvas fits well on mobile devices
-         -->
-         <canvas id="myCanvas" width="300" height="300"></canvas>
-
-
-
-
-<!--- Four buttons, when clicked, each button has a different function as outlined in the previous goal of the code.
-	<div class="btnContainer">
-            <!-- Button to draw a rectangle -->
-            <button onclick="drawRectangle()">Draw Rectangle</button>
-            <!-- Button to write your name -->
-            <button onclick="drawName()">Draw Name</button>
-            <!-- Button to load an image -->
-            <button onclick="loadImage()">Load Image</button>
-            <!-- Button to clear the canvas -->
-            <button onclick="clearCanvas()">Clear Canvas</button>
-         </div>
-      </div>
-
-<footer class="w3-bottom w3-container w3-flat-carrot">
-	<p>DIY!</p>
-</footer>
-<!-- JavaScript functions to interact with the canvas -->
-      <script>
-        
-         // Global variables for the canvas and its buttons
-       
-         // Retrieve the canvas element using its ID
-         var canvas = document.getElementById('myCanvas');
-         // Get the 2D drawing context of the canvas, which allows us to draw shapes, text, and images
-         var ctx = canvas.getContext('2d');
-         
-         }
-
-	// Function: drawRectangle()
-         // Purpose: Draws a rectangle on the canvas when the button is clicked.
-         
-         function drawRectangle() {
-            // Set the fill color for the rectangle to blue
-            ctx.fillStyle = "blue";
-            // Draw a filled rectangle starting at x=20, y=20 with a width of 100 pixels and a height of 50 pixels.
-            ctx.fillRect(20, 20, 100, 50);
-         }
-
-// Function: drawName()
-         // Purpose: Draws text (your name) on the canvas when the button is clicked.
-         function drawName() {
-            // Set the text color to black
-            ctx.fillStyle = "black";
-            // Set the font style and size for the text
-            ctx.font = "20px Arial";
-            // Write the text "Your Name" on the canvas at position x=30, y=150.
-            // Replace "Your Name" with your actual name if desired.
-            ctx.fillText("Your Name", 30, 150);
-         }
-
-// Function: loadImage()
-         // Purpose: Loads an image onto the canvas when the button is clicked.
-         function loadImage() {
-            // Create a new image object
-            var img = new Image();
-            // Set the image source.
-            // Change "example.jpg" to the path of the image you wish to load.
-            img.src = "example.jpg";
-            // When the image is loaded (asynchronously), draw it on the canvas.
-            img.onload = function() {
-               // Draw the image on the canvas starting at the top-left corner (0,0)
-               // Resize the drawn image to fill the canvas dimensions.
-               ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-            };
-         }
-
-	// Function: clearCanvas()
-         // Purpose: Clears the canvas, erasing all drawings/content
-         function clearCanvas() {
-            // Clear the canvas by erasing the drawing area from (0,0) to the full width and height of the canvas.
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-         }
-      </script>
-
-</body>
-</html>
+<head>
+    <title>App6---HTML5-Canvas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="w3.css">
+    <link rel="stylesheet" href="w3-colors-flat.css">
+    
+    <!-- Internal CSS styles -->
+    <style>
+        /* Reset margin for the whole body */
+        body {
+            margin: 0;
+        }
+        .page {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: -100vw;
+            overflow-y: auto;
+            z-index: 0;
+            background-color: hsl(0, 0%, 100%);
+        }
+        .page:target {
+            left: 0vw;
+            z-index: 1;
+        }
+        /* Style the canvas with a solid border */
+        #myCanvas {
+            border: 2px solid black;
+        }
+        /* Basic styling for button container and buttons */
+        .btnContainer {
+            margin-top: 10px;
+        }
+        .btnContainer button {
+            margin-right: 5px;
+            margin-bottom: 5px;
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+    </style>
+    
+    <!-- Script to display document's last modified date -->
+    <script>
+        var docMod = document.lastModified;
+        alert("This file last modified " + docMod);
+        console.log("This
