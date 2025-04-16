@@ -100,14 +100,24 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 </footer>
 <!-- JavaScript functions to interact with the canvas -->
       <script>
-         // ------------------------------------------------------------------
+        
          // Global variables for the canvas and its buttons
-         // ------------------------------------------------------------------
+       
          // Retrieve the canvas element using its ID
          var canvas = document.getElementById('myCanvas');
          // Get the 2D drawing context of the canvas, which allows us to draw shapes, text, and images
          var ctx = canvas.getContext('2d');
          
+         }
+
+	// Function: drawRectangle()
+         // Purpose: Draws a rectangle on the canvas when the corresponding button is clicked.
+         
+         function drawRectangle() {
+            // Set the fill color for the rectangle to blue
+            ctx.fillStyle = "blue";
+            // Draw a filled rectangle starting at x=20, y=20 with a width of 100 pixels and a height of 50 pixels.
+            ctx.fillRect(20, 20, 100, 50);
          }
 
 </body>
