@@ -111,7 +111,7 @@ console.log("This file last modified " + docMod); // generates message in javaSc
          }
 
 	// Function: drawRectangle()
-         // Purpose: Draws a rectangle on the canvas when the corresponding button is clicked.
+         // Purpose: Draws a rectangle on the canvas when the button is clicked.
          
          function drawRectangle() {
             // Set the fill color for the rectangle to blue
@@ -121,7 +121,7 @@ console.log("This file last modified " + docMod); // generates message in javaSc
          }
 
 // Function: drawName()
-         // Purpose: Draws text (your name) on the canvas when the corresponding button is clicked.
+         // Purpose: Draws text (your name) on the canvas when the button is clicked.
          function drawName() {
             // Set the text color to black
             ctx.fillStyle = "black";
@@ -131,6 +131,24 @@ console.log("This file last modified " + docMod); // generates message in javaSc
             // Replace "Your Name" with your actual name if desired.
             ctx.fillText("Your Name", 30, 150);
          }
+
+// Function: loadImage()
+         // Purpose: Loads an image onto the canvas when the button is clicked.
+         function loadImage() {
+            // Create a new image object
+            var img = new Image();
+            // Set the image source.
+            // Change "example.jpg" to the path of the image you wish to load.
+            img.src = "example.jpg";
+            // When the image is loaded (asynchronously), draw it on the canvas.
+            img.onload = function() {
+               // Draw the image on the canvas starting at the top-left corner (0,0)
+               // Resize the drawn image to fill the canvas dimensions.
+               ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            };
+         }
+
+	      
 
 </body>
 </html>
