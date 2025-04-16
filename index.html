@@ -120,5 +120,17 @@ console.log("This file last modified " + docMod); // generates message in javaSc
             ctx.fillRect(20, 20, 100, 50);
          }
 
+// Function: drawName()
+         // Purpose: Draws text (your name) on the canvas when the corresponding button is clicked.
+         function drawName() {
+            // Set the text color to black
+            ctx.fillStyle = "black";
+            // Set the font style and size for the text
+            ctx.font = "20px Arial";
+            // Write the text "Your Name" on the canvas at position x=30, y=150.
+            // Replace "Your Name" with your actual name if desired.
+            ctx.fillText("Your Name", 30, 150);
+         }
+
 </body>
 </html>
